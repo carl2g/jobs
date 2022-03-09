@@ -26,15 +26,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_09_213956) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "listings_missions", id: false, force: :cascade do |t|
-    t.integer "listing_id", null: false
-    t.integer "mission_id", null: false
-  end
-
   create_table "missions", force: :cascade do |t|
     t.string "name"
+    t.integer "listing_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_missions_on_listing_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -47,5 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_09_213956) do
   end
 
   add_foreign_key "bookings", "listings"
+  add_foreign_key "missions", "listings"
   add_foreign_key "reservations", "listings"
 end

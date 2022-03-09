@@ -1,3 +1,5 @@
 class Listing < ApplicationRecord
-	has_and_belongs_to_many :missions
+	has_many :missions
+	has_many :reservations
+	has_many :bookings
 end
