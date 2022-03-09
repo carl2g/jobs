@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :missions
+  resources :missions, only: [:index]
   resources :reservations
   resources :bookings
   resources :listings
