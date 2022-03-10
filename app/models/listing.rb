@@ -1,4 +1,6 @@
 class Listing < ApplicationRecord
+  
+  # Relations
   has_many :missions
   has_many :reservations
   has_many :bookings

@@ -1,5 +1,9 @@
 class Booking < ApplicationRecord
+
+  # Relations
   belongs_to :listing
+
+  # Callbacks
   after_create :initialize_missions
 
   def initialize_missions
