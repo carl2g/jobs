@@ -8,14 +8,14 @@ class Reservation < ApplicationRecord
   # Callbacks
   after_create :initialize_missions
   
+  def initialize_missions
+    self.listing.add_mission(Mission::CHECKOUT_CHECKIN, self.end_date)
+  end
+
   # Validations could / should be in a validation module
   validate do |reservation|
     reservation.in_booking_range
     reservation.check_overlapping_reservations
-  end
-
-  def initialize_missions
-    self.listing.add_mission(Mission::CHECKOUT_CHECKIN, self.end_date)
   end
 
   def check_overlapping_reservations

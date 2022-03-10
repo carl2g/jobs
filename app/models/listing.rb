@@ -1,9 +1,9 @@
 class Listing < ApplicationRecord
   
   # Relations
-  has_many :missions
-  has_many :reservations
-  has_many :bookings
+  has_many :missions,     dependent: :destroy
+  has_many :reservations, dependent: :destroy
+  has_many :bookings,     dependent: :destroy
 
   def add_mission(mission_type, mission_date)
     case mission_type
