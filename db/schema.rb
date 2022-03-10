@@ -15,22 +15,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_09_213956) do
     t.date "start_date"
     t.date "end_date"
     t.integer "listing_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_bookings_on_listing_id"
   end
 
   create_table "listings", force: :cascade do |t|
     t.integer "num_rooms"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "missions", force: :cascade do |t|
     t.string "name"
     t.integer "listing_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_missions_on_listing_id"
   end
 
@@ -38,8 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_09_213956) do
     t.date "start_date"
     t.date "end_date"
     t.integer "listing_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_reservations_on_listing_id"
   end
 

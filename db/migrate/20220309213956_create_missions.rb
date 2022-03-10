@@ -4,7 +4,6 @@ class CreateMissions < ActiveRecord::Migration[7.0]
     create_table :missions do |t|
       t.string :name
       t.references :listing, null: false, foreign_key: true
-      t.timestamps
     end
 
   end
