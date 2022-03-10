@@ -23,8 +23,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_09_213956) do
   end
 
   create_table "missions", force: :cascade do |t|
-    t.string "mission_type"
     t.integer "listing_id", null: false
+    t.string "mission_type"
     t.date "date"
     t.integer "price"
     t.index ["listing_id"], name: "index_missions_on_listing_id"

@@ -1,10 +1,10 @@
 class Booking < ApplicationRecord
   belongs_to :listing
-  after_create :add_mission
+  after_create :initialize_missions
 
-  def add_first_checkin_mission
-    self.listing.add_mission(self, Mission::FIRST_CHECKIN)
-    self.listing.add_mission(self, Mission::LAST_CHECKOUT)
+  def initialize_missions
+    self.listing.add_mission(Mission::FIRST_CHECKIN, self.start_date)
+    self.listing.add_mission(Mission::LAST_CHECKOUT, self.end_date)
   end
 
 end

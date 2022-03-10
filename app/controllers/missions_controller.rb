@@ -3,7 +3,7 @@ class MissionsController < ApplicationController
 
   # GET /missions
   def index
-    @missions = Mission.all
+    @missions = Mission.all.order(listing_id: :asc).select_except(:id)
 
     render json: @missions
   end
